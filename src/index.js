@@ -11,11 +11,11 @@ async function getUserData(id) {
   const dbX = await central(id);
   // Use dbX value to get user data and vault data simultaneously
   const [userData, vaultData] = await Promise.all([dbs[dbX](id), vault(id)]);
-
-  console.log(dbX, userData, vaultData);
+  return ({id, ...userData, ...vaultData})
 }
 
-getUserData(10);
+let userData = getUserData(10);
+console.log(userData);
 
 // {
 //     id: number,
