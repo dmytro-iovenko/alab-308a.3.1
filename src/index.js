@@ -26,11 +26,11 @@ async function getUserData(id) {
   return combinedUserData;
 }
 
-// Get user data for user with id = 10
-const userData = getUserData(10);
-// Resolve Promise
-userData
-  // log combined user data
-  .then((userData) => console.log(userData))
-  // log error, if any
-  .catch((error) => console.log(error));
+// Test code by passing Valid numbers – 1 through 10 (inclusive)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach((id) =>
+  getUserData(id)
+    // log combined user data
+    .then((userData) => console.log(userData))
+    // log error, if any
+    .catch((error) => console.log(error))
+);
