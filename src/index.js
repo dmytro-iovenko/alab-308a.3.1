@@ -9,12 +9,34 @@ async function getUserData(id) {
   };
   // Get apropriate db1, db2, or db3 from central database
   const dbX = await central(id);
-  // Use this dbX value to get user data from dbX database
-  const userData = await dbs[dbX](id);
-  // Get vault data from vault database
-  const vaultData = await vault(id);
+  // Use dbX value to get user data and vault data simultaneously
+  const [userData, vaultData] = await Promise.all([dbs[dbX](id), vault(id)]);
 
   console.log(dbX, userData, vaultData);
 }
 
 getUserData(10);
+
+// {
+//     id: number,
+//     name: string,
+//     username: string,
+//     email: string,
+//     address: {
+//       street: string,
+//       suite: string,
+//       city: string,
+//       zipcode: string,
+//       geo: {
+//         lat: string,
+//         lng: string
+//       }
+//     },
+//     phone: string,
+//     website: string,
+//     company: {
+//       name: string,
+//       catchPhrase: string,
+//       bs: string
+//     }
+// }
