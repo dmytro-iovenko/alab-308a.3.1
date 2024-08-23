@@ -49,7 +49,7 @@ async function getUserData(id) {
     .catch((error) => console.log("ID:", id, "ERROR:", error.message))
 );
 
-// Invalid data types – strings, Booleans, etc.
+// Test code by passing  Invalid data types – strings, Booleans, etc.
 ["1", "string", true, false, 2.5, 5.5, 9.5].forEach((id) =>
   getUserData(id)
     // log combined user data
@@ -57,4 +57,3 @@ async function getUserData(id) {
     // log error, if any
     .catch((error) => console.log("ID:", id, "ERROR:", error.message))
 );
-
