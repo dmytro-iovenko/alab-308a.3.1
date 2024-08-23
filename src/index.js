@@ -9,7 +9,9 @@ async function getUserData(id) {
   };
   // Get apropriate db1, db2, or db3 from central database
   const dbX = await central(id);
-  console.log(dbX);
+  // Use this dbX value to get user data from dbX database
+  const userData = await dbs[dbX](id); // db3(id)
+  console.log(dbX, userData);
 }
 
 getUserData(10);
