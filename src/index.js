@@ -30,7 +30,16 @@ async function getUserData(id) {
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach((id) =>
   getUserData(id)
     // log combined user data
-    .then((userData) => console.log(userData))
+    .then((userData) => console.log("ID:", id, "USER DATA:", userData))
     // log error, if any
-    .catch((error) => console.log(error))
+    .catch((error) => console.log("ID:", id, "ERROR:", error.message))
+);
+
+// Test code by passing Invalid numbers – less than 1 or higher than 10.
+[-1, 0, 11, 100].forEach((id) =>
+  getUserData(id)
+    // log combined user data
+    .then((userData) => console.log("ID:", id, "USER DATA:", userData))
+    // log error, if any
+    .catch((error) => console.log("ID:", id, "ERROR:", error.message))
 );
