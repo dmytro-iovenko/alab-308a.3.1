@@ -23,8 +23,8 @@ async function getUserData(id) {
     DEBUG && console.log("User data:", combinedUserData);
     // return a Promise that resolves to the object with combined user data
     return combinedUserData;
-//   } catch (error) {
-//     console.log(error);
+    //   } catch (error) {
+    //     console.log(error);
   } finally {
     // if it is DEBUG mode, log elapsed time
     DEBUG && console.log("Time elsapsed:", Date.now() - start);
@@ -50,10 +50,11 @@ async function getUserData(id) {
 );
 
 // Invalid data types – strings, Booleans, etc.
-["1", "string", true, false].forEach((id) =>
+["1", "string", true, false, 2.5, 5.5, 9.5].forEach((id) =>
   getUserData(id)
     // log combined user data
     .then((userData) => console.assert("ID:", id, "USER DATA:", userData))
     // log error, if any
     .catch((error) => console.log("ID:", id, "ERROR:", error.message))
 );
+
